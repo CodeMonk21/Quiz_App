@@ -13,12 +13,12 @@
         <section class="bg-indigo-600 text-white font-semibold py-4 px-8 mb-3 rounded-t-md">
             <h2 class="text-center text-4xl mb-6 font-serif">Quiz App</h2>
             <section class="flex justify-between">
-                <div class="text-base px-2">Question: <span id="question-no">1</span>/10</div>
+                <div class="text-base px-2">Question: <span id="question-no">0</span>/10</div>
                 <div class="text-base px-2">Score: <span id="score-no">0</span></div>
             </section>
         </section>
         <!-- Question section -->
-        <section class="px-10 font-mono">
+        <section id="question-content" class="px-10 font-mono hidden">
             <div id="question" class="text-2xl font-medium text-slate-800 mb-5 mt-4 ml-1">What is 2+2?</div>
             <!-- Options -->
             <section id="options" class="flex flex-col gap-3">
@@ -28,9 +28,18 @@
                 <button class="option border-2 border-slate-500 block w-full text-left text-lg px-3 py-2 hover:border-blue-300 hover:transition hover:duration-700 hover:ease-in-out  rounded-sm ">6</button>
             </section>
         </section>
-        <!-- Start/Next button -->
-        <section class="text-center my-5">
+        <!-- Next button -->
+        <section id="next-content" class="text-center my-5 hidden">
             <button id="next-btn" class="bg-slate-700 text-white px-10 py-2 hover:bg-slate-800 transition-all duration-700  ease-in-out hover:scale-105">Next</button>
+        </section>
+        <!-- Start button -->
+        <section id="start-content" class="py-16 text-center">
+            <button id="start-btn" class="border px-6 py-3 text-xl bg-emerald-400 text-white rounded-md hover:bg-emerald-500 transition-all ease-in-out duration-700">Start Quiz</button>
+        </section>
+        <!-- Score section -->
+        <section id="reset-content" class="py-16 text-center hidden">
+            <h2 class="text-4xl text-slate-600 font-medium mb-10">Your Score: <span id="score" class="text-indigo-500">0</span></h2>
+            <button class="border px-4 py-2 text-lg bg-emerald-400 text-white rounded-md hover:bg-emerald-500 transition-all ease-in-out duration-700" id="reset-btn">Reset Quiz</button>
         </section>
     </main>
     <script src="script.js"></script>

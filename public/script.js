@@ -1,10 +1,5 @@
 const questionArr = [
     {
-        question: "What is 2+2?",
-        options:["3","4","5","6"],
-        correctAns:"4"
-    },
-    {
         question: "Which of the following keywords is used to define a variable in Javascript?",
         options:["var","let","Both A and B","None of the above"],
         correctAns:"Both A and B"
@@ -57,20 +52,40 @@ const questionArr = [
 ]
 
 const optionElements = document.querySelectorAll(".option")
-const nextBtn = document.querySelector("#next-btn")
-let  questionNo = 1
+let  questionNo = 0
 let attemptQuestion  = 0
 let  score = 0
-let currentQuestion = questionArr[questionNo-1]
+let currentQuestion = questionArr[questionNo]
 
+//Start the quiz when Start button is clicked
+document.querySelector("#start-btn").addEventListener("click",()=>{
+    document.getElementById("start-content").classList.toggle("hidden")
+    document.getElementById("question-content").classList.toggle("hidden")
+    document.getElementById("next-content").classList.toggle("hidden")
+    document.getElementById("question-no").innerHTML = ++questionNo
+    currentQuestion = questionArr[questionNo-1]
+    updateQuestion()
+})
+//Reset the quiz when Reset button is clicked
+document.querySelector("#reset-btn").addEventListener("click",()=>{
+    document.getElementById("reset-content").classList.toggle("hidden")
+    document.getElementById("start-content").classList.toggle("hidden")
+    questionNo = score = attemptQuestion = 0
+    document.getElementById("question-no").innerHTML = questionNo
+    document.getElementById("score-no").innerHTML = score
+    currentQuestion = questionArr[0]
+})
 
 //Check Next button is clicked and update question & options
-nextBtn.addEventListener("click",()=>{
+document.querySelector("#next-btn").addEventListener("click",()=>{
     if(questionNo>=10){
-        alert(`You Scored:- ${score}`)
+        document.getElementById("reset-content").classList.toggle("hidden")
+        document.getElementById("question-content").classList.toggle("hidden")
+        document.getElementById("next-content").classList.toggle("hidden")
+        document.getElementById("score").textContent = score
     }
     else if(attemptQuestion==questionNo){
-        document.querySelector("#question-no").innerHTML = ++questionNo
+        document.getElementById("question-no").innerHTML = ++questionNo
         currentQuestion = questionArr[questionNo-1]
         updateQuestion()
     }else{
@@ -88,6 +103,7 @@ optionElements.forEach((option)=>option.addEventListener("click",()=>{
     attemptQuestion++
     optionElements.forEach((element)=> element.disabled = true)
 }))
+
 
 //fn:update question and its options
 function updateQuestion(){
