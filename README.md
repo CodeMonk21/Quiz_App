@@ -1,7 +1,7 @@
 
 ## Quiz App
 
-In this project user has to create a simple quiz application, where one can test his skills.
+Welcome to the JavaScript Quiz App! Start your coding adventure with a click – our button initiates an engaging quiz. Instantly know if your answers are correct, keep tabs on your score, and when you've conquered the challenge, restart for another round. Enjoy the journey of learning and testing your JavaScript.
 
 ## Features
 
